@@ -13,6 +13,13 @@ wrangler init my-worker
 cd my-worker
 ```
 
+Update your **wrangler.toml** with the following settings to allow the proper mapping of traffic from outside the container.
+
+```toml
+[dev]
+  ip = "0.0.0.0"
+```  
+
 Since you are running from a console in the container, you'll need to create an API token before proceeding.
 
 Open the .env and update your Account ID and API Token.
