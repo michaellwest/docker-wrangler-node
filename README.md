@@ -15,8 +15,9 @@ cd my-worker
 
 Since you are running from a console in the container, you'll need to create an API token before proceeding.
 
-Open the .env and update your API token.
+Open the .env and update your Account ID and API Token.
 
 ```text
+CLOUDFLARE_ACCOUNT_ID=
 CLOUDFLARE_API_TOKEN=
 ```

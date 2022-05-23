@@ -1,0 +1,18 @@
+version: "2.4"
+
+services:
+  node:
+    image: ${REGISTRY}wrangler:${NODE_VERSION}-nanoserver-${NANOSERVER_VERSION}
+    command: ['cmd.exe', '/c', 'ping -n 1800 127.0.0.1 >NUL']
+    build:
+      context: ./docker/build/node
+      args:
+        BASE_IMAGE: mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
+    ports:
+      - "8787:8787"
+    volumes:
+      - .\project:C:\project
+    environment:
+      - CLOUDFLARE_ACCOUNT_ID=${CLOUDFLARE_ACCOUNT_ID}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
